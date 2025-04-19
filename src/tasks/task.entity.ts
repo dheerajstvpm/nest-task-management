@@ -20,8 +20,4 @@ export class Task {
   @ManyToOne(() => User, (user) => user.tasks, { eager: false })
   @Exclude()
   user: User;
-
-  constructor(partial: Partial<Task>) {
-    Object.assign(this, partial);
-  }
 }

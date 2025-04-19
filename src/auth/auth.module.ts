@@ -16,7 +16,7 @@ const oneHour = 3600;
       defaultStrategy: 'jwt',
     }),
     JwtModule.register({
-      secret: 'jwtSecret',
+      secret: process.env.JWT_SECRET,
       signOptions: {
         expiresIn: oneHour,
       },
