@@ -1,0 +1,44 @@
+@baseUrl = http://localhost:3000
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhYnVAZ21haWwuY29tIiwiaWF0IjoxNzQ4NTE2MDczLCJleHAiOjE3NDg1MTk2NzN9.Ohwc4MYYf7eS8oeu-y8V_zaL8gntHhKZq1FXHNg566g
+
+###
+POST {{baseUrl}}/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "username": "babu@gmail.com",
+    "password": "Abcd@1234"
+}
+
+###
+
+POST {{baseUrl}}/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+    "username": "babu@gmail.com",
+    "password": "Abcd@1234"
+}
+
+###
+
+GET {{baseUrl}}/tasks HTTP/1.1
+Authorization: {{authorization}}
+
+###
+
+GET {{baseUrl}}/tasks/e9ab0fd0-743b-493b-987c-d7e0f1cdc27e HTTP/1.1
+Authorization: {{authorization}}
+
+###
+
+POST {{baseUrl}}/tasks HTTP/1.1
+Authorization: {{authorization}}
+content-type: application/json
+
+{
+    "title": "babu",
+    "description": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
