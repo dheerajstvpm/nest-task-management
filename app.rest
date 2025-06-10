@@ -1,12 +1,12 @@
 @baseUrl = http://localhost:3000
-@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhYnVAZ21haWwuY29tIiwiaWF0IjoxNzQ4NTE2MDczLCJleHAiOjE3NDg1MTk2NzN9.Ohwc4MYYf7eS8oeu-y8V_zaL8gntHhKZq1FXHNg566g
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5AZ21haWwuY29tIiwiaWF0IjoxNzQ5MTA5NDg0LCJleHAiOjE3NDkxMTMwODR9.66EBQnrQPYENrfiaUojxi_5rcH1ql0-8tDGqpmbIamE
 
 ###
 POST {{baseUrl}}/auth/signup HTTP/1.1
 content-type: application/json
 
 {
-    "username": "babu@gmail.com",
+    "username": "john@gmail.com",
     "password": "Abcd@1234"
 }
 
@@ -16,7 +16,7 @@ POST {{baseUrl}}/auth/signin HTTP/1.1
 content-type: application/json
 
 {
-    "username": "babu@gmail.com",
+    "username": "john@gmail.com",
     "password": "Abcd@1234"
 }
 
@@ -37,8 +37,23 @@ Authorization: {{authorization}}
 content-type: application/json
 
 {
-    "title": "babu",
+    "title": "jacob",
     "description": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+DELETE {{baseUrl}}/tasks/88271031-626a-42f1-a264-e64d910ba7c1
+Authorization: {{authorization}}
+
+###
+
+PATCH {{baseUrl}}/tasks/b4069816-269e-4597-8490-73c94f5530d2/status HTTP/1.1
+Authorization: {{authorization}}
+content-type: application/json
+
+{
+    "status": "IN_PROGRESS"
 }
 
 ###
