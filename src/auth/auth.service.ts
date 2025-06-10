@@ -21,7 +21,7 @@ export class AuthService {
   ): Promise<{ accessToken: string }> {
     const { username, password } = authCredentialDto;
     const user = await this.usersRepository.getUser(username);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (isPasswordMatch) {
       const payload: JwtPayload = { username };

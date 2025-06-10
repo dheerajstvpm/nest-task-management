@@ -18,9 +18,9 @@ export class UsersRepository extends Repository<User> {
   async createUser(authCredentialsDto: AuthCredentialDto): Promise<void> {
     const { username, password } = authCredentialsDto;
     const saltRounds = 10;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
     const user = this.create({ username, password: hashedPassword });
     try {
       await this.save(user);
